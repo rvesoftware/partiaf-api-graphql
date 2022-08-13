@@ -1,8 +1,13 @@
 export default {
-  
     Query: {
-        async sendConsole() {
+        async getUser() {
             console.log("Hola Mudno")
         }
     },
+
+    Mutation: {
+        async registerUser() {
+
+        }
+    }
 }
