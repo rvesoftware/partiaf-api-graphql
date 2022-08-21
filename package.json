@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev ./src/server/index.ts",
-    "start": "set NODE_ENV=development && --exec ts-node --experimental-modules ./src/server/index.ts"
+    "start": "set NODE_ENV=development && ts-node --experimental-modules ./src/server/index.ts"
   },
   "keywords": [],
   "author": "",
