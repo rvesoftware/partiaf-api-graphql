@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev ./src/server/index.ts"
+    "dev": "ts-node-dev ./src/server/index.ts",
+    "start": "set NODE_ENV=development && --watch backend --exec ts-node --experimental-modules ./src/server/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "graphql": "^16.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.2",
+    "ts-node": "^10.9.1",
     "uuid": "^8.3.2"
   }
 }
