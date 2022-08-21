@@ -1,11 +1,11 @@
 import { Schema } from "mongoose";
 import { User } from "./user";
 
-
 export const UserSchemaMongo = new Schema<User>({
+    uuid: {type: String, unique:true, required:true},
     name: {type: String},
     username: {type: String, trim:true, unique:true},
-    email: {type: String, trim:true, unique:true},
+    email: {type: String, trim:true, unique:true, required:false},
     type: {type: String},
     verified: {type: Boolean},
     password: {type: String, trim:true},
@@ -18,7 +18,10 @@ export const UserSchemaMongo = new Schema<User>({
     followers: [{type: String}],
     following: [{type: String}],
     interests: [{type: String}],
-    balance: {type: Number},
-    events: {type: Number},
+    balance: {type: Number, default: 10000},
+    events: {type: Number, default: 0 },
     pin: {type: Number},
-})
+}, {
+    versionKey: false,
+    timestamps: true
+});

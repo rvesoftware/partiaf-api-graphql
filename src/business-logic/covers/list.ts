@@ -1,0 +1,8 @@
+import {Collection, getModel} from '../../constant-definitions' 
+import { CoverSchemaMongo } from '../../types/models/cover/cover-mongo';
+
+export const getAllStores = async (): Promise<any> => {
+    const model = await getModel(Collection.COVERS, CoverSchemaMongo)
+    const covers = await model.find({});
+    return covers;
+}
