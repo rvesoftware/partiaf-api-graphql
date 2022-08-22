@@ -10,22 +10,22 @@ export const StoreSchemaMongo = new Schema<Store>({
     email: {type:String, unique: true},
     password: {type:String},
     phone: {type:Number},
-    location: [{
-        address: [{
-            street: String,
-            city: String,
-            state: String,
-            zipcode: String
-        }],
-        geo:[
+    location: {
+        address: {
+            street:{type: String},
+            city: {type:String},
+            state: {type:String},
+            zipcode: {type:String}
+        },
+        geo:
             {
-                caract:String,
-                longitud: String,
-                latitud: String
+                caract:{type:String},
+                longitud: {type:String},
+                latitud: {type:String}
 
             }
-        ]
-    }],
+        
+    },
     limit: {type:Number},
     photos: [{type: String}],
     employes: {type: String},

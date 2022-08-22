@@ -23,4 +23,7 @@ export const CoverSchemaMongo = new Schema<Cover>({
     }
     ],
     date: {type: Date},
+}, {
+    versionKey: false,
+    timestamps: true
 })

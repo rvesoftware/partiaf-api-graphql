@@ -17,6 +17,34 @@ type User{
     events: Int
 }
 
+type Store{
+    _id: ID
+    uuid: String
+    address: String
+    name: String
+    description: String
+    type: String
+    email: String
+    phone: String
+    photos: [String]
+    createdAt: String
+}
+
+type Cover{
+    _id: ID
+    uuid: String
+    type: String
+    name: String
+    description: String
+    limit: Int
+    date: String
+    hour: String
+    image: String
+    price: Int
+    peoples: [String]
+    createdAt: String
+}
+
 input UserInput{
     name: String!
     username: String!
@@ -34,7 +62,9 @@ type Query{
     searchUsers(search: String): [User]
     isFollow(uuid: String, username: String): Boolean
     getFollowers(uuid: String, username: String): [User]
-
+    getStores: [Store]
+    getStore(id: String): Store
+    getCovers(id: String): [Cover]
 }
 
 type Mutation {

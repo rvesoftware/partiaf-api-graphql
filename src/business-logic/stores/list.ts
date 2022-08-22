@@ -3,6 +3,7 @@ import {Collection, getModel} from '../../constant-definitions'
 
 export const getAllStores = async (): Promise<any> => {
     const model = await getModel(Collection.STORES, StoreSchemaMongo)
-    const stores = await model.find();
+    const stores = await model.find({});
+    console.log(stores)
     return stores;
 }
