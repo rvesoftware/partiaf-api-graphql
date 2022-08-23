@@ -32,6 +32,7 @@ export const userSignin = async ({username, password}: PartialUser): Promise<Use
         uuid: user.uuid,
         username: user.username,
         name: user.name,
-        events: user.events
+        events: user.events,
+        balance: user.balance,
     };
 }

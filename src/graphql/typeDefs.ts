@@ -65,6 +65,7 @@ type Query{
     getStores: [Store]
     getStore(id: String): Store
     getCovers(id: String): [Cover]
+    getCover(id: String): Cover
 }
 
 type Mutation {

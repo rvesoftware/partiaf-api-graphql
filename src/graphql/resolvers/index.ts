@@ -1,4 +1,5 @@
 import { getCoversById } from "../../business-logic/covers/get-by-id";
+import { getCoverById } from "../../business-logic/covers/get-one";
 import { createFollow } from "../../business-logic/follow/create";
 import { getFollowers } from "../../business-logic/follow/followers";
 import { isFollow } from "../../business-logic/follow/is-follow";
@@ -62,6 +63,11 @@ export default {
         async getCovers(_:any, {id}:Store, context:any) {
             const covers = await getCoversById(id);
             return covers;
+        },
+
+        async getCover(_:any, {id}:Store, context:any) {
+            const cover = await getCoverById(id);
+            return cover;
         },
     },
 
