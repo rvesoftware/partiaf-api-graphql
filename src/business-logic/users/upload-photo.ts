@@ -2,7 +2,7 @@ import { Collection, getModel } from "../../constant-definitions";
 import { User} from "../../types";
 import { UserSchemaMongo } from "../../types/dtos/user/user-mongo";
 
-export const uploadUserPhoto = async (uuid: string, file: string): Promise<Boolean | Error> => {
+export const uploadUserPhoto = async (uuid: string, file: string): Promise<any | Error> => {
     const model = getModel(Collection.USERS, UserSchemaMongo);
     
     console.log(uuid)
@@ -17,5 +17,5 @@ export const uploadUserPhoto = async (uuid: string, file: string): Promise<Boole
     }
 
     
-    return true;    
+    return {status: true, url: user.photo};    
 }

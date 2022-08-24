@@ -85,7 +85,7 @@ type Mutation {
     userSignup(name:String, phone:String, username:String, password:String): User
     userSignin(username:String, password:String): User
     updateUserPhoto(file: Upload): UpdateUserPhoto
-    uploadPhoto(uuid: String, file: String): Boolean
+    uploadPhoto(uuid: String, file: String): UpdateUserPhoto
 
 
     follow(uuid: String, username:String!): Boolean
