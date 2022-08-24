@@ -27,5 +27,5 @@ export interface User {
     location: string;
     date_of_birth: Date;
     notifications: boolean;
-    pin: number;
+    pin: string;
 }

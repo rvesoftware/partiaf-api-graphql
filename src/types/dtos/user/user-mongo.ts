@@ -20,7 +20,7 @@ export const UserSchemaMongo = new Schema<User>({
     interests: [{type: String}],
     balance: {type: Number, default: 10000},
     events: {type: Number, default: 0 },
-    pin: {type: Number},
+    pin: {type: String},
 }, {
     versionKey: false,
     timestamps: true
