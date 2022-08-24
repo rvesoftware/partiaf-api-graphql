@@ -14,6 +14,7 @@ import { searchUsers } from "../../business-logic/users/list";
 import { userSignin } from "../../business-logic/users/signin";
 import { userSignup } from "../../business-logic/users/signup"
 import { UnfollowUser } from "../../business-logic/users/unfollow";
+import { uploadUserPhoto } from "../../business-logic/users/upload-photo";
 import { User } from "../../types";
 
 interface Search {
@@ -37,6 +38,11 @@ interface IsFollow {
 interface UserPin {
     id: string
     pin: number
+}
+
+interface UserPhoto {
+    uuid: string
+    file: string
 }
 export default {
     Query: {
@@ -116,6 +122,11 @@ export default {
         async createPin(_:any, {id, pin}: UserPin, context:any){
             const people = await createUserPin(id, pin);
             return true;
+        },
+
+        async uploadPhoto(_:any, {uuid, file}: UserPhoto, context:any){
+            const upload = await uploadUserPhoto(uuid, file);
+            return upload;
         }
 
         // async userUpdatePhoto(_:any, {uuid: string,  })
