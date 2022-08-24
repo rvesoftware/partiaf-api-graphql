@@ -19,6 +19,8 @@ export const InsertListCoverPeople = async (data: People): Promise<any> => {
     const cover = await model.findById(data.id);
     const user = await userModel.findById(data.user);
 
+    if(!user) return Error(`User does not exist`);
+
     await user.save();
 
     if(!cover){

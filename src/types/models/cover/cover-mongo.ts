@@ -7,6 +7,7 @@ export const CoverSchemaMongo = new Schema<Cover>({
     description: {type: String},
     type: {type: String},
     limit: {type:Number},
+    initial_limit: {type:Number},
     image: [{type: String}], 
     store: {type: mongoose.Types.ObjectId, ref: 'store'},
     hour: {type: String},

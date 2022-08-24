@@ -3,7 +3,7 @@ import {Collection, getModel} from '../../constant-definitions'
 import { CoverSchemaMongo } from '../../types/models/cover/cover-mongo';
 
 
-interface People{
+export interface People{
     id: string,
     amount: number,
     user: any,
@@ -18,6 +18,8 @@ export const InsertCoverPeople = async (data: People): Promise<any> => {
 
     const cover = await model.findById(data.id);
     const user = await userModel.findById(data.user);
+
+    if(!user) {return Error(`User not found`)}
 
     user.balance = user.balance - data.price;
     user.events = user.events? user.events  + 1 : 1; 

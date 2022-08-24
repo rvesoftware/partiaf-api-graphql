@@ -12,6 +12,7 @@ type User{
     password: String
     photo: String
     balance: Int
+    pin: String
     createdAt: String
     token: String
     events: Int
@@ -45,6 +46,16 @@ type Cover{
     createdAt: String
 }
 
+type People{
+    amount: Int
+    user: String
+    state: String
+    price: Int
+    date: String
+    hour: String
+    name: String
+}
+
 input UserInput{
     name: String!
     username: String!
@@ -66,6 +77,8 @@ type Query{
     getStore(id: String): Store
     getCovers(id: String): [Cover]
     getCover(id: String): Cover
+    getMyCovers(id: String): [People]
+
 }
 
 type Mutation {
@@ -75,6 +88,11 @@ type Mutation {
 
     follow(uuid: String, username:String!): Boolean
     unfollow(uuid: String, username:String!): Boolean
+
+    insertPeople(id: String, user: String, price:Int, amount:Int, state:String): Boolean
+
+    createPin(id: String,  pin:String): Boolean
+
 
 }
 
