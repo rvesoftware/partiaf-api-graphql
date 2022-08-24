@@ -90,10 +90,7 @@ type Mutation {
     unfollow(uuid: String, username:String!): Boolean
 
     insertPeople(id: String, user: String, price:Int, amount:Int, state:String): Boolean
-
     createPin(id: String,  pin:String): Boolean
-
-
 }
 
 `;
