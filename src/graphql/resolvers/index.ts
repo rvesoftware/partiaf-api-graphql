@@ -2,6 +2,9 @@ import { getCoversById } from "../../business-logic/covers/get-by-id";
 import { getCoversByUser } from "../../business-logic/covers/get-by-user";
 import { getCoverById } from "../../business-logic/covers/get-one";
 import { InsertCoverPeople, People } from "../../business-logic/covers/insert";
+import { followStore } from "../../business-logic/follow-stores/create";
+import { isFollowStore } from "../../business-logic/follow-stores/is-follow";
+import { unfollowStore } from "../../business-logic/follow-stores/unfollow";
 import { createFollow } from "../../business-logic/follow/create";
 import { getFolloweds } from "../../business-logic/follow/followeds";
 import { getFollowers } from "../../business-logic/follow/followers";
@@ -27,6 +30,13 @@ interface Follow {
     uuid: string
     username: string
 }
+
+
+interface FollowStore {
+    uuid: string
+    id: string
+}
+
 
 interface Store {
     id: string
@@ -63,6 +73,11 @@ export default {
 
         async isFollow(_:any, {uuid, username}: Follow, context:any) {
             const follow = await isFollow(uuid, username);
+            return follow;
+        },
+
+        async isFollowStore(_:any, {uuid, id}: FollowStore, context:any) {
+            const follow = await isFollowStore(uuid, id);
             return follow;
         },
 
@@ -118,9 +133,20 @@ export default {
             return follow;
         },
 
+        async followStore(_:any, {uuid, id}: FollowStore, context:any) {
+            const follow = await followStore(uuid, id);
+            return follow;
+        },
+
         async unfollow(_:any, {uuid, username}: Follow, context:any) {
             console.log("this is unfollow")
             const follow = await unfollow(uuid, username);
+            return follow;
+        },
+
+        async unfollowStore(_:any, {uuid, id}: FollowStore, context:any) {
+            console.log("this is unfollow")
+            const follow = await unfollowStore(uuid, id);
             return follow;
         },
 

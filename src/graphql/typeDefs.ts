@@ -73,6 +73,7 @@ type Query{
     searchUsers(search: String): [User]
     searchStores(search: String): [Store]
     isFollow(uuid: String, username: String): Boolean
+    isFollowStore(uuid: String, id: String): Boolean
     getFollowers(uuid: String, username: String): [User]
     getFolloweds(uuid: String, username: String): [User]
     getStores: [Store]
@@ -92,6 +93,10 @@ type Mutation {
 
     follow(uuid: String, username:String!): Boolean
     unfollow(uuid: String, username:String!): Boolean
+
+    followStore(uuid: String, id:String!): Boolean
+    unfollowStore(uuid: String, id:String!): Boolean
+
 
     insertPeople(id: String, user: String, price:Int, amount:Int, state:String): Boolean
     createPin(id: String,  pin:String): Boolean

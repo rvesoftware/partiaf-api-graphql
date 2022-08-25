@@ -12,5 +12,6 @@ export enum Collection {
     MENUS = 'menus',
     COVERS = 'covers',
     COMMENTS = 'comments',
-    FOLLOW = 'follow'
+    FOLLOW = 'follow',
+    FOLLOW_STORE = 'follow-store',
 }
