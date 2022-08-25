@@ -3,11 +3,13 @@ import { getCoversByUser } from "../../business-logic/covers/get-by-user";
 import { getCoverById } from "../../business-logic/covers/get-one";
 import { InsertCoverPeople, People } from "../../business-logic/covers/insert";
 import { createFollow } from "../../business-logic/follow/create";
+import { getFolloweds } from "../../business-logic/follow/followeds";
 import { getFollowers } from "../../business-logic/follow/followers";
 import { isFollow } from "../../business-logic/follow/is-follow";
 import { unfollow } from "../../business-logic/follow/unfollow";
 import { getStoreById } from "../../business-logic/stores/get-one";
 import { getAllStores } from "../../business-logic/stores/list";
+import { searchStores } from "../../business-logic/stores/search";
 import { createUserPin } from "../../business-logic/users/create-pin";
 import { getUserById } from "../../business-logic/users/get-user-by-id";
 import { searchUsers } from "../../business-logic/users/list";
@@ -54,6 +56,10 @@ export default {
             const users = await searchUsers(search);
             return users;
         },
+        async searchStores(_:any, {search}: Search, context:any) {
+            const stores = await searchStores(search);
+            return stores;
+        },
 
         async isFollow(_:any, {uuid, username}: Follow, context:any) {
             const follow = await isFollow(uuid, username);
@@ -62,6 +68,11 @@ export default {
 
         async getFollowers(_:any, {uuid, username}: Follow, context:any) {
             const follow = await getFollowers(uuid, username);
+            return follow;
+        },
+
+        async getFolloweds(_:any, {uuid, username}: Follow, context:any) {
+            const follow = await getFolloweds(uuid, username);
             return follow;
         },
 

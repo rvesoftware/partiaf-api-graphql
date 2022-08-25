@@ -71,8 +71,10 @@ type UpdateUserPhoto {
 type Query{
     getUser(uuid:String, username:String): User 
     searchUsers(search: String): [User]
+    searchStores(search: String): [Store]
     isFollow(uuid: String, username: String): Boolean
     getFollowers(uuid: String, username: String): [User]
+    getFolloweds(uuid: String, username: String): [User]
     getStores: [Store]
     getStore(id: String): Store
     getCovers(id: String): [Cover]
