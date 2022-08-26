@@ -19,6 +19,7 @@ import { searchUsers } from "../../business-logic/users/list";
 import { userSignin } from "../../business-logic/users/signin";
 import { userSignup } from "../../business-logic/users/signup"
 import { UnfollowUser } from "../../business-logic/users/unfollow";
+import { updateUserProfile } from "../../business-logic/users/update-profile";
 import { uploadUserPhoto } from "../../business-logic/users/upload-photo";
 import { User } from "../../types";
 
@@ -56,6 +57,17 @@ interface UserPhoto {
     uuid: string
     file: string
 }
+
+interface UpdateUser {
+    id: string
+    bio: string
+    instagram: string
+    password: string
+    pin: string
+    email: string
+
+}
+
 export default {
     Query: {
         async getUser(_:any, {uuid, username}: User, context:any) {
@@ -163,6 +175,12 @@ export default {
 
         async uploadPhoto(_:any, {uuid, file}: UserPhoto, context:any){
             const upload = await uploadUserPhoto(uuid, file);
+            return upload;
+        },
+
+        async updateUserProfile(_:any, {id, bio, password, email, instagram, pin}: UpdateUser, context:any){
+            console.log(bio)
+            const upload = await updateUserProfile(id, bio, email, password, instagram, pin);
             return upload;
         }
 

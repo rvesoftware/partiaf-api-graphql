@@ -16,6 +16,7 @@ type User{
     createdAt: String
     token: String
     events: Int
+    biography: String
 }
 
 type Store{
@@ -100,6 +101,9 @@ type Mutation {
 
     insertPeople(id: String, user: String, price:Int, amount:Int, state:String): Boolean
     createPin(id: String,  pin:String): Boolean
+
+    updateUserProfile(id: String, bio: String, email: String, password: String, instagram: String, pin: String):Boolean
+
 }
 
 `;
