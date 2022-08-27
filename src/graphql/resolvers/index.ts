@@ -2,6 +2,7 @@ import { getCoversById } from "../../business-logic/covers/get-by-id";
 import { getCoversByUser } from "../../business-logic/covers/get-by-user";
 import { getCoverById } from "../../business-logic/covers/get-one";
 import { InsertCoverPeople, People } from "../../business-logic/covers/insert";
+import { getAllCovers } from "../../business-logic/covers/list";
 import { followStore } from "../../business-logic/follow-stores/create";
 import { isFollowStore } from "../../business-logic/follow-stores/is-follow";
 import { unfollowStore } from "../../business-logic/follow-stores/unfollow";
@@ -125,6 +126,12 @@ export default {
         async getMyCovers(_:any, {id}:Store, context:any) {
             const myCovers = await getCoversByUser(id);
             return myCovers;
+        },
+
+        async getAllCovers(_:any, {}, context:any){
+            console.log("ENTRO")
+            const covers = await getAllCovers();
+            return covers;
         }
     },
 
@@ -182,7 +189,7 @@ export default {
             console.log(bio)
             const upload = await updateUserProfile(id, bio, email, password, instagram, pin);
             return upload;
-        }
+        },
 
         // async userUpdatePhoto(_:any, {uuid: string,  })
     }

@@ -41,9 +41,9 @@ type Cover{
     limit: Int
     date: String
     hour: String
-    image: String
+    image: [String]
     price: Int
-    peoples: [String]
+    peoples: [People]
     createdAt: String
 }
 
@@ -82,7 +82,7 @@ type Query{
     getCovers(id: String): [Cover]
     getCover(id: String): Cover
     getMyCovers(id: String): [People]
-
+    getAllCovers: [Cover]
 }
 
 type Mutation {
