@@ -55,6 +55,7 @@ type People{
     date: String
     hour: String
     name: String
+    description: String
 }
 
 input UserInput{
