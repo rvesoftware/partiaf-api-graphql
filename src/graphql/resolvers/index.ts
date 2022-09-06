@@ -17,6 +17,7 @@ import { searchStores } from "../../business-logic/stores/search";
 import { createUserPin } from "../../business-logic/users/create-pin";
 import { getUserById } from "../../business-logic/users/get-user-by-id";
 import { searchUsers } from "../../business-logic/users/list";
+import { resetPassword } from "../../business-logic/users/reset-password";
 import { userSignin } from "../../business-logic/users/signin";
 import { userSignup } from "../../business-logic/users/signup"
 import { UnfollowUser } from "../../business-logic/users/unfollow";
@@ -52,6 +53,12 @@ interface IsFollow {
 interface UserPin {
     id: string
     pin: number
+}
+
+
+interface UserReset {
+    id: string
+    phone: number
 }
 
 interface UserPhoto {
@@ -188,6 +195,11 @@ export default {
         async updateUserProfile(_:any, {id, bio, password, email, instagram, pin}: UpdateUser, context:any){
             console.log(bio)
             const upload = await updateUserProfile(id, bio, email, password, instagram, pin);
+            return upload;
+        },
+
+        async resetPassword(_:any, {id, phone}: UserReset, context:any){
+            const upload = await resetPassword(id, phone);
             return upload;
         },
 

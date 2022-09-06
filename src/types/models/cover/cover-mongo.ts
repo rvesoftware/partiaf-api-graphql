@@ -20,7 +20,7 @@ export const CoverSchemaMongo = new Schema<Cover>({
         price: {type: Number},
         gender: {type: String},
         name: {type: String},
-        photo: [{type: String}],
+        photo: {type: String},
     }
     ],
     date: {type: Date},
