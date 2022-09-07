@@ -105,7 +105,6 @@ type Mutation {
     insertPeople(id: String, user: String, price:Int, amount:Int, state:String, name:String, photo:String): Boolean
     createPin(id: String,  pin:String): Boolean
 
-    resetPassword(id: String,  phone:String): Boolean
 
     updateUserProfile(id: String, bio: String, email: String, password: String, instagram: String, pin: String):Boolean
 

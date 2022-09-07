@@ -193,10 +193,12 @@ export default {
             return upload;
         },
 
-        async resetPassword(_:any, {id, phone}: UserReset, context:any){
-            const upload = await resetPassword(id, phone);
-            return upload;
-        },
+    // resetPassword(id: String,  phone:String): Boolean
+
+        // async resetPassword(_:any, {id, phone}: UserReset, context:any){
+        //     const upload = await resetPassword(id, phone);
+        //     return upload;
+        // },
 
         // async userUpdatePhoto(_:any, {uuid: string,  })
     }
