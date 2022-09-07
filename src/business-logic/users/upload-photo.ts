@@ -5,8 +5,6 @@ import { UserSchemaMongo } from "../../types/dtos/user/user-mongo";
 export const uploadUserPhoto = async (uuid: string, file: string): Promise<any | Error> => {
     const model = getModel(Collection.USERS, UserSchemaMongo);
     
-    console.log(uuid)
-    console.log(file)
     const user = await model.findOne({uuid: uuid});
     if(!user) return Error("User nto found");
     try{

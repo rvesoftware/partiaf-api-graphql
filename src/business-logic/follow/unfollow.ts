@@ -8,12 +8,10 @@ export const unfollow = async (uuid: string, username: string): Promise<Boolean 
 
     const user = await userModel.findOne({username: username});
 
-    console.log("UUSEEER", user)
     if(!user) return Error(" Usuario no encontrado");
 
     const follow = await model.deleteOne({user: uuid }).where("follow").equals(user.uuid);
 
-    console.log("FOOOLOEW", follow)
 
 
     if(follow.deletedCount > 0) return true;

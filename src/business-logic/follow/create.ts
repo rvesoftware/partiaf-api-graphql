@@ -6,7 +6,6 @@ export const createFollow = async (uuid: string, username: string): Promise<Bool
     const model = getModel(Collection.FOLLOW, FollowSchemaMongo);
     const userModel = getModel(Collection.USERS, UserSchemaMongo);
 
-    console.log(uuid)
     const user = await userModel.findOne({username: username});
 
     if(!user) return Error(" Usuario no encontrado");

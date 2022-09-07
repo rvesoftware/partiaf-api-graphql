@@ -13,7 +13,6 @@ export const getFollowers = async (uuid: string, username: string): Promise<User
 
     const followers = await model.find({follow: user.uuid}).populate('user') as User[];
 
-    console.log(followers);
     const followersList: User[] = [];
 
         for await(const follower of followers) {

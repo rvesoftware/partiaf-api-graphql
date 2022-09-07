@@ -136,7 +136,6 @@ export default {
         },
 
         async getAllCovers(_:any, {}, context:any){
-            console.log("ENTRO")
             const covers = await getAllCovers();
             return covers;
         }
@@ -150,7 +149,6 @@ export default {
 
         async userSignin(_:any, {username, password}: User, context:any) {
             const user = await userSignin({ username, password});
-            console.log("USER", user)
             return user;
         },
 
@@ -165,19 +163,17 @@ export default {
         },
 
         async unfollow(_:any, {uuid, username}: Follow, context:any) {
-            console.log("this is unfollow")
             const follow = await unfollow(uuid, username);
             return follow;
         },
 
         async unfollowStore(_:any, {uuid, id}: FollowStore, context:any) {
-            console.log("this is unfollow")
             const follow = await unfollowStore(uuid, id);
             return follow;
         },
 
-        async insertPeople(_:any, {id, amount, user, state, price}: People, context:any){
-            const people = await InsertCoverPeople({id, amount, user, state, price});
+        async insertPeople(_:any, {id, amount, user, state, price, name, photo}: People, context:any){
+            const people = await InsertCoverPeople({id, amount, user, state, price, name, photo});
             return true;
 
         },
@@ -193,7 +189,6 @@ export default {
         },
 
         async updateUserProfile(_:any, {id, bio, password, email, instagram, pin}: UpdateUser, context:any){
-            console.log(bio)
             const upload = await updateUserProfile(id, bio, email, password, instagram, pin);
             return upload;
         },

@@ -11,7 +11,6 @@ export const userSignup = async ({name, username, phone, password}: PartialUser)
 
     const user = await model.findOne({username: username});
 
-    console.log(user)
 
     if(user){
          throw new Error("El usuario ya esta registrado");

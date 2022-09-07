@@ -15,7 +15,6 @@ export const followStore = async (uuid: string, id: string): Promise<Boolean | E
         follow: store._id
     });
 
-    console.log(result)
 
     if (!result) throw new Error("No se puede crear el cover");
 

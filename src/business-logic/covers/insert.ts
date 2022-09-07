@@ -9,12 +9,15 @@ export interface People{
     user: any,
     state: string,
     price: number,
+    name: string,
+    photo: string
 }
 
 export const InsertCoverPeople = async (data: People): Promise<any> => {
     const model = await getModel(Collection.COVERS, CoverSchemaMongo)
     const userModel = await getModel(Collection.USERS, UserSchemaMongo)
 
+    console.log(data)
 
     const cover = await model.findById(data.id);
     const user = await userModel.findById(data.user);
