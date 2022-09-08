@@ -14,6 +14,7 @@ export const CoverSchemaMongo = new Schema<Cover>({
     price: {type: Number},
     peoples: [
         {
+        id: {type: mongoose.Types.ObjectId, ref: 'cover'},
         amount: {type: Number},
         user: {type: mongoose.Types.ObjectId, ref: 'user'},
         state: {type: String},
