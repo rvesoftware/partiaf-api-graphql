@@ -48,6 +48,8 @@ type Cover{
 }
 
 type People{
+    uuid: String
+    id: String
     amount: Int
     user: String
     state: String
@@ -102,7 +104,7 @@ type Mutation {
     unfollowStore(uuid: String, id:String!): Boolean
 
 
-    insertPeople(id: String, user: String, price:Int, amount:Int, state:String, name:String, photo:String): Boolean
+    insertPeople(id: String, user: String, price:Int, amount:Int, state:String, name:String, photo:String, hour: String): Boolean
     createPin(id: String,  pin:String): Boolean
 
 

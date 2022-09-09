@@ -132,6 +132,7 @@ export default {
 
         async getMyCovers(_:any, {id}:Store, context:any) {
             const myCovers = await getCoversByUser(id);
+            console.log(myCovers)
             return myCovers;
         },
 

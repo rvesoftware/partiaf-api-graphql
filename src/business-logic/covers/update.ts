@@ -2,7 +2,7 @@ import { Cover } from "../../types";
 import { Collection, getModel } from "../../constant-definitions";
 import { CoverSchemaMongo } from "../../types/models/cover/cover-mongo";
 
-export const updateCover = async(id:String, name: string, type:string, price:number, date:string, limit:number, hour: string,description:string, image:string): Promise<Cover | Error> => {
+export const updateCover = async(id:String, name: string, type:string, price:number, date:string, limit:number, hour: string,description:string, image:string): Promise<any | Error> => {
     const model = await getModel(Collection.COVERS, CoverSchemaMongo);
     const cover = await model.findById(id);
 

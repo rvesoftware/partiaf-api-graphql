@@ -1,7 +1,7 @@
 import { Cover, StoreSchemaMongo } from "../../types";
 import { Collection, getModel } from "../../constant-definitions";
 
-export const updateStore = async(id:String, name: string, description:string, type:string, nit:string, phone: number, limit:number, employe_code:number): Promise<Cover | Error> => {
+export const updateStore = async(id:String, name: string, description:string, type:string, nit:string, phone: number, limit:number, employe_code:number): Promise<any | Error> => {
     const model = await getModel(Collection.STORES, StoreSchemaMongo);
     const store = await model.findById(id);
     if(!store) { throw new Error("No se encontro el cover")};

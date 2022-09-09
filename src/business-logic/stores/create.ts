@@ -2,7 +2,7 @@ import { Collection, getModel } from "../../constant-definitions";
 import { Store, StoreSchemaMongo } from "../../types";
 import bcrypt from 'bcrypt'
 
-export const createStore = async (data: Store): Promise<Store | null> => {
+export const createStore = async (data: Store): Promise<any | null> => {
     const model = getModel(Collection.STORES, StoreSchemaMongo);
 
     const newPassword =  bcrypt.hashSync(data.password, 10);
