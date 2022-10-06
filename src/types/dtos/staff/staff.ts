@@ -1,20 +1,16 @@
 export interface Staff {
-    _id: string;
+    uuid: string;
     firstname: string;
     lastname: string;
     username: string;
     email: string;
     role: string;
+    position: any;
     password: string;
     phone: string;
     photo: string;
     gender: string;
-    biography: string;
     status: number;
-    balance: number;
-    verification_code: number;
-    last_login: Date;
-    location: string;
+    payment: number;
     date_of_birth: Date;
-    notifications: boolean;
 }
