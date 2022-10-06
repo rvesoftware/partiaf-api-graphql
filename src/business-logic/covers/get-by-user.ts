@@ -15,6 +15,5 @@ export const getCoversByUser = async (id:string): Promise<any> => {
 
     const peoples = myCovers.filter((cover:any) => cover.user == id);
 
-    // console.log(peoples)
     return peoples;
 }

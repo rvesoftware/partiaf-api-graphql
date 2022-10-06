@@ -1,3 +1,4 @@
+import { getChairsById } from "../../business-logic/chairs/get-by-id";
 import { getCoversById } from "../../business-logic/covers/get-by-id";
 import { getCoversByUser } from "../../business-logic/covers/get-by-user";
 import { getCoverById } from "../../business-logic/covers/get-one";
@@ -139,7 +140,13 @@ export default {
         async getAllCovers(_:any, {}, context:any){
             const covers = await getAllCovers();
             return covers;
-        }
+        },
+
+        async getChairs(_:any, {id}:Store, context:any) {
+            const chairs = await getChairsById(id);
+            return chairs;
+        },
+
     },
 
     Mutation: {

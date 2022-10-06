@@ -6,6 +6,7 @@ export enum Collection {
     USERS = 'users',
     STORES = 'stores',
     BOOKINGS = 'bookings',
+    CHAIRS = 'chairs',
     STAFF = 'staff',
     BUYS = 'buys',
     TABLES = 'TABLES',

@@ -47,6 +47,15 @@ type Cover{
     createdAt: String
 }
 
+type Chair{
+    _id: ID
+    type: String
+    min_consumption: Int
+    chairs: Int
+    limit: Int
+    max_chairs: Int
+}
+
 type People{
     uuid: String
     id: String
@@ -85,6 +94,7 @@ type Query{
     getStores: [Store]
     getStore(id: String): Store
     getCovers(id: String): [Cover]
+    getChairs(id: String): [Chair]
     getCover(id: String): Cover
     getMyCovers(id: String): [People]
     getAllCovers: [Cover]

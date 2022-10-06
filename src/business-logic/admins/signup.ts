@@ -9,8 +9,6 @@ export const adminSignup = async ({firstname, lastname, email, identification_ty
     const {valid, errors} = validateSignupInput(email, password)
 
     if(!valid){
-        console.log(errors)
-
         throw new Error(errors.email + " "+ errors.password);
     }
 
