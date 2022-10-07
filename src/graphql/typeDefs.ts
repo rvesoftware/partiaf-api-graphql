@@ -117,6 +117,7 @@ type Mutation {
     insertPeople(id: String, user: String, price:Int, amount:Int, state:String, name:String, photo:String, hour: String): Boolean
     createPin(id: String,  pin:String): Boolean
 
+    insertBooking(store: String, chair_id: String, user: String, date:String, hour:String, state:String, min_consumption:Int, peoples:Int): Boolean
 
     updateUserProfile(id: String, bio: String, email: String, password: String, instagram: String, pin: String):Boolean
 

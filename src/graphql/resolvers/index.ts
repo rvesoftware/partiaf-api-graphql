@@ -1,4 +1,5 @@
 import { getChairsById } from "../../business-logic/chairs/get-by-id";
+import { InsertBooking } from "../../business-logic/chairs/insert";
 import { getCoversById } from "../../business-logic/covers/get-by-id";
 import { getCoversByUser } from "../../business-logic/covers/get-by-user";
 import { getCoverById } from "../../business-logic/covers/get-one";
@@ -24,7 +25,7 @@ import { userSignup } from "../../business-logic/users/signup"
 import { UnfollowUser } from "../../business-logic/users/unfollow";
 import { updateUserProfile } from "../../business-logic/users/update-profile";
 import { uploadUserPhoto } from "../../business-logic/users/upload-photo";
-import { User } from "../../types";
+import { Booking, User } from "../../types";
 
 interface Search {
     search: string
@@ -184,6 +185,11 @@ export default {
             const people = await InsertCoverPeople({id, amount, user, state, price, name, photo});
             return true;
 
+        },
+
+        async insertBooking(_:any, {store, chair_id, date, hour, user, state, min_consumption, peoples}: Booking, context:any){
+            const people = await InsertBooking({store, chair_id, date, hour, user, state, min_consumption, peoples});
+            return true;
         },
 
         async createPin(_:any, {id, pin}: UserPin, context:any){
