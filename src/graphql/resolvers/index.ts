@@ -22,6 +22,7 @@ import { searchUsers } from "../../business-logic/users/list";
 import { resetPassword } from "../../business-logic/users/reset-password";
 import { userSignin } from "../../business-logic/users/signin";
 import { userSignup } from "../../business-logic/users/signup"
+import { userSignupFacebook } from "../../business-logic/users/signup-facebook";
 import { UnfollowUser } from "../../business-logic/users/unfollow";
 import { updateUserProfile } from "../../business-logic/users/update-profile";
 import { uploadUserPhoto } from "../../business-logic/users/upload-photo";
@@ -153,6 +154,11 @@ export default {
     Mutation: {
         async userSignup(_:any, {name, username, phone, password}: User, context:any) {
             const user = await userSignup({name, username,phone, password});
+            return user;
+        },
+        async userSignupFacebook(_:any, {name, username, email, photo, password}: User, context:any) {
+            console.log(name, username, email, photo, password)
+            const user = await userSignupFacebook({name, username, email, photo, password});
             return user;
         },
 

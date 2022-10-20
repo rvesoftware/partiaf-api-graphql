@@ -102,6 +102,8 @@ type Query{
 
 type Mutation {
     userSignup(name:String, phone:String, username:String, password:String): User
+    userSignupFacebook(name:String, photo:String, username:String, email:String, password:String): User
+
     userSignin(username:String, password:String): User
     updateUserPhoto(file: Upload): UpdateUserPhoto
     uploadPhoto(uuid: String, file: String): UpdateUserPhoto
