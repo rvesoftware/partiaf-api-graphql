@@ -97,6 +97,7 @@ type Query{
     getChairs(id: String): [Chair]
     getCover(id: String): Cover
     getMyCovers(id: String): [People]
+    getMyBookings(id: String): [People]
     getAllCovers: [Cover]
 }
 

@@ -1,3 +1,4 @@
+import { getBookingsByUser } from "../../business-logic/booking/get-by-user";
 import { getChairsById } from "../../business-logic/chairs/get-by-id";
 import { InsertBooking } from "../../business-logic/chairs/insert";
 import { getCoversById } from "../../business-logic/covers/get-by-id";
@@ -137,6 +138,13 @@ export default {
             const myCovers = await getCoversByUser(id);
             console.log("COVERS", myCovers)
             return myCovers;
+        },
+
+
+        async getMyBookings(_:any, {id}:Store, context:any) {
+            const myBookings = await getBookingsByUser(id);
+            console.log("BOOKINGS", myBookings)
+            return myBookings;
         },
 
         async getAllCovers(_:any, {}, context:any){
