@@ -9,7 +9,7 @@ export const getCoversByUser = async (id:string): Promise<any> => {
     covers.filter((cover:any) => cover.peoples.length > 0)
     .map((cover) => {
             cover.peoples.map((people:any) => {
-                myCovers.push({ id: people._id, user: people.user, state: people.state, price: people.price, date:cover.date, hour: cover.hour, amount: people.amount, name: cover.name, description: cover.description, location: cover.location})
+                myCovers.push({ id: cover._id, user: people.user, state: people.state, price: people.price, date:cover.date, hour: cover.hour, amount: people.amount, name: cover.name, description: cover.description, location: cover.location})
             })
     });
 
