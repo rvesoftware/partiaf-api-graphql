@@ -17,7 +17,6 @@ export const InsertCoverPeople = async (data: People): Promise<any> => {
     const model = await getModel(Collection.COVERS, CoverSchemaMongo)
     const userModel = await getModel(Collection.USERS, UserSchemaMongo)
 
-    console.log(data)
 
     const cover = await model.findById(data.id);
     const user = await userModel.findById(data.user);
@@ -34,8 +33,12 @@ export const InsertCoverPeople = async (data: People): Promise<any> => {
     }
 
     cover.peoples.unshift(data);
+    
+
     cover.limit = cover.limit  - data.amount;
 
     await cover.save();
+    console.log("PASO DE AQUI")
+    console.log(cover)
     return user;
 }
