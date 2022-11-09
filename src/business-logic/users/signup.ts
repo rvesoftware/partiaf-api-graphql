@@ -6,7 +6,7 @@ import {v4 as uuidv4} from 'uuid';
 import jwt from 'jsonwebtoken';
 
 type PartialUser = Partial<User>;
-export const userSignup = async ({name, username, phone, password}: PartialUser): Promise<any> => {
+export const userSignup = async ({name, username, phone, password, pin}: PartialUser): Promise<any> => {
     const model = await getModel(Collection.USERS, UserSchemaMongo)
 
     const user = await model.findOne({username: username});
@@ -23,12 +23,13 @@ export const userSignup = async ({name, username, phone, password}: PartialUser)
             name,
             username,
             phone,
-            password
+            password,
+            pin
         });
 
         await user.save();
 
-        const token = jwt.sign({uuid: uuid, name: name, username: username, phone:phone}, process.env.JWT_SIGNIN_KEY || "", {expiresIn: "24h"});
+        const token = jwt.sign({uuid: uuid, name: name, username: username, phone:phone, pin: pin}, process.env.JWT_SIGNIN_KEY || "", {expiresIn: "24h"});
 
         return {
             token,

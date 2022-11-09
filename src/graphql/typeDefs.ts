@@ -17,6 +17,7 @@ type User{
     token: String
     events: Int
     biography: String
+    phone: String
 }
 
 type Store{
@@ -102,7 +103,7 @@ type Query{
 }
 
 type Mutation {
-    userSignup(name:String, phone:String, username:String, password:String): User
+    userSignup(name:String, phone:String, username:String, password:String, pin:String): User
     userSignupFacebook(name:String, photo:String, username:String, email:String, password:String): User
 
     userSignin(username:String, password:String): User

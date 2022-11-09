@@ -160,8 +160,8 @@ export default {
     },
 
     Mutation: {
-        async userSignup(_:any, {name, username, phone, password}: User, context:any) {
-            const user = await userSignup({name, username,phone, password});
+        async userSignup(_:any, {name, username, phone, password, pin}: User, context:any) {
+            const user = await userSignup({name, username,phone, password, pin});
             return user;
         },
         async userSignupFacebook(_:any, {name, username, email, photo, password}: User, context:any) {
